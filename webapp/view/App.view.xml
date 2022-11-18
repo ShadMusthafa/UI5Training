@@ -1,0 +1,9 @@
+<mvc:View controllerName="com.stel.myUI5App.myui5app.controller.App" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" displayBlock="true">
+    <App>  
+        <Page id="page" title="{i18n>title}">
+            <content>
+                <Text text="Some text" />
+            </content>
+        </Page>
+    </App>
+</mvc:View>

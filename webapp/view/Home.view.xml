@@ -1,0 +1,23 @@
+<mvc:View 
+    controllerName="com.stel.myUI5App.myui5app.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m">
+    <App>
+        <Page title="UI5 Training">
+            <content>
+                <Text text="Session about controls and documentation" />
+                <Button 
+                    text="Say Hello"
+                    press=".sayHelloBtnPress"/>
+                <Button 
+                    text="Test Btn"
+                    press=".onTestBtnPress"/>
+            </content>
+            <footer>
+                <Toolbar>
+                    <Button text="This is Button" />
+                </Toolbar>
+            </footer>
+        </Page>
+    </App>
+</mvc:View>
