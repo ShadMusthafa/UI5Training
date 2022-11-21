@@ -1,30 +1,52 @@
 sap.ui.define([
     "com/stel/myUI5App/myui5app/controller/BaseController"
-],function(BaseController){
-    return BaseController.extend("com.stel.myUI5App.myui5app.controller.Home",{
+], function (BaseController) {
+    return BaseController.extend("com.stel.myUI5App.myui5app.controller.Home", {
         /** Lifecycle hooks in sapui5 */
-        onInit: function(){
-            console.log("On Init happened!");
-        },
-        onBeforeRendering: function(){
-            console.log("On Before Rendering happened!");
-        },
-        onAfterRendering: function(){
-            console.log("On After Rendering happened!");
-        },
-        onExit: function(){
-            console.log("On Exit happened!");
+        onInit: function () {
+            console.clear();
+            var oModelData = {
+                name: "John Smith",
+                isFooterVisible: false
+            };
+            // var oModel = new sap.ui.model.json.JSONModel("../model/viewModelData.json");
+            var oModel = new sap.ui.model.json.JSONModel(oModelData);
+            oModel.setDefaultBindingMode("OneWay");
+
+            // //Tell the view the model is available
+            var oView = this.getView();
+            oView.setModel(oModel, "viewModel");
+
+            // console.log("View Object", oView);
+
+            // Tell UI5 core that model is available
+            // var oCore = sap.ui.getCore();
+            // oCore.setModel(oModel, "viewModel");
+            // console.log("Core",this.getCore());
+
+            console.log(oModel);
         },
 
+
         /** Event Handlers */
-        sayHelloBtnPress: function(){
+        sayHelloBtnPress: function () {
             this.sayHello();
         },
 
-        onTestBtnPress:function(){
-            console.log("Test Btn")
+        onShowFooterBtnPress: function () {
+            var oView = this.getView(),
+                oModel = oView.getModel("viewModel");
+            oModel.setProperty("/isFooterVisible", true);
+
+        },
+
+        onHideFooterBtnPress: function () {
+            var oView = this.getView(),
+                oModel = oView.getModel("viewModel");
+            oModel.setProperty("/isFooterVisible", false);
         }
 
         /** Helper functions */
+
     });
 });

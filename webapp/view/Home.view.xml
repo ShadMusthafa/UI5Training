@@ -3,19 +3,21 @@
     xmlns:mvc="sap.ui.core.mvc" 
     xmlns="sap.m">
     <App>
-        <Page title="UI5 Training">
+        <Page 
+            title="UI5 Training"
+            showFooter="{viewModel>/isFooterVisible}">
             <content>
                 <Text text="Session about controls and documentation" />
                 <Button 
                     text="Say Hello"
                     press=".sayHelloBtnPress"/>
                 <Button 
-                    text="Test Btn"
-                    press=".onTestBtnPress"/>
+                    text="Show Footer"
+                    press=".onShowFooterBtnPress"/>
             </content>
             <footer>
                 <Toolbar>
-                    <Button text="This is Button" />
+                    <Button text="Hide Footer" press=".onHideFooterBtnPress" />
                 </Toolbar>
             </footer>
         </Page>
