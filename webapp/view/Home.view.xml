@@ -1,19 +1,54 @@
 <mvc:View 
     controllerName="com.stel.myUI5App.myui5app.controller.Home"
-    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:form="sap.ui.layout.form" 
     xmlns="sap.m">
     <App>
         <Page 
-            title="UI5 Training"
+            title="{i18n>homepageTitle}"
             showFooter="{viewModel>/isFooterVisible}">
             <content>
-                <Text text="Session about controls and documentation" />
+                <!-- <Text text="Session about controls and documentation" />
                 <Button 
                     text="Say Hello"
                     press=".sayHelloBtnPress"/>
                 <Button 
                     text="Show Footer"
                     press=".onShowFooterBtnPress"/>
+                <DatePicker /> -->
+                <form:SimpleForm
+                    title="Category"
+                    layout="ColumnLayout">
+                    <Label text="{i18n>categoryIDLab}"/>
+                    <Text text="{viewModel>/categories/3/CategoryID}"/>
+                    <Label text="{i18n>categoryNameLab}"/>
+                    <Text text="{viewModel>/categories/3/CategoryName}"/>
+                    <Label text="{i18n>categoryDescLab}"/>
+                    <Text text="{viewModel>/categories/3/Description}"/>
+                </form:SimpleForm>
+                <Table
+                    items="{viewModel>/categories}">
+                    <columns>
+                        <Column>
+                            <Text text="ID" />
+                        </Column>
+                        <Column>
+                            <Text text="Name" />
+                        </Column>
+                        <Column>
+                            <Text text="Description" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{viewModel>CategoryID}"/>
+                                <Text text="{viewModel>CategoryName}"/>
+                                <Text text="{viewModel>Description}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
             </content>
             <footer>
                 <Toolbar>
